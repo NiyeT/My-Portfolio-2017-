@@ -1,0 +1,62 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../portfolio-header/portfolio-header.html">
+<link rel="import" href="../portfolio-home/portfolio-home.html">
+<link rel="import" href="../portfolio-showcase/portfolio-showcase.html">
+<link rel="import" href="../portfolio-aboutme/portfolio-aboutme.html">
+
+<dom-module id="niyes-portfolio">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      ::-webkit-scrollbar {
+          width: 0px;  /* remove scrollbar space */
+          background: transparent;  /* optional: just make scrollbar invisible */
+      }
+      /* optional: show position indicator in red */
+      ::-webkit-scrollbar-thumb {
+          background: #FF0000;
+      }
+
+    </style>
+    <portfolio-header></portfolio-header>
+    <portfolio-home></portfolio-home>
+    <portfolio-showcase id="portfolio" aria-hidden="false" with-backdrop>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location="" skills="HTML, CSS"></div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location="">something</div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location=""></div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location=""></div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location=""></div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location=""></div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location=""></div>
+      <div class="new-card" img="http://gearnuke.com/wp-content/uploads/2017/06/pokemon-go-lugia-reveal.png" title="Lugia Lit AF" location=""></div>
+
+    </portfolio-showcase>
+    <portfolio-aboutme id="aboutMe" with-backdrop></portfolio-aboutme>
+  </template>
+
+  <script>
+    /**
+     * `niyes-portfolio`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class NiyesPortfolio extends Polymer.Element {
+      static get is() { return 'niyes-portfolio'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'niyes-portfolio'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(NiyesPortfolio.is, NiyesPortfolio);
+  </script>
+</dom-module>

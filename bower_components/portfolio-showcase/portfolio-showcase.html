@@ -1,0 +1,137 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../vaadin-icons/vaadin-icons.html">
+<link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet">
+
+<dom-module id="portfolio-showcase">
+  <template>
+    <!-- <div class="case frame">
+      <div class="inner-case frame">
+        <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+          <div class="card-content">
+            Something interesting to say
+          </div>
+          <div class="card-actions">
+            <paper-button>Share</paper-button>
+            <paper-button>Explore!</paper-button>
+          </div>
+        </paper-card>
+      </div>
+    </div> -->
+    <style>
+      :host {
+        display: block;
+        /*height: 50%;
+        width: 50%;
+        top: 0;
+        left: 0;
+        background-color: orange;
+        position: absolute;*/
+        height: 80%;
+        width: 80%;
+        background-color: #B0BEC5;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -ms-overflow-style: none;  // IE 10+
+        overflow: -moz-scrollbars-none;  // Firefox
+      }
+      .case{
+        height: 54%;
+        width: 33.3%;
+        background-color: #B0BEC5;
+        float:right;
+
+      }
+      .inner-case{
+        height: 95%;
+        width: 80%;
+        margin:auto;
+        background-color:red ;
+      }
+      .frame{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /*paper-card {
+      max-width: 100%;
+      max-height: 100%;
+      }*/
+      paper-card{
+        height: 100%;
+        width:100%;
+      }
+      .Htitle{
+        font-family: 'Proza Libre', sans-serif;
+
+        text-overflow: ellipsis;
+        font-weight: ;
+        }
+    </style>
+  </template>
+
+  <script>
+    /**
+     * `portfolio-showcase`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    // class PortfolioShowcase extends Polymer.Element {
+    //   static get is() { return 'portfolio-showcase'; }
+    //   static get properties() {
+    //     return {
+    //       prop1: {
+    //         type: String,
+    //         value: 'portfolio-showcase'
+    //       }
+    //     };
+    //   }
+    // }
+    //
+    // window.customElements.define(PortfolioShowcase.is, PortfolioShowcase);
+
+    Polymer({
+      is:"portfolio-showcase",
+      behaviors:[Polymer.IronOverlayBehavior],
+      showcase:function(image,title,comment,location,skills){
+        return `
+        <div class="case frame">
+          <div class="inner-case frame">
+            <paper-card class="Htitle" heading="` + title + `" image=\"` + image + `\" alt="Emmental">
+              <div class="card-content">
+              ` + comment + `
+              </div>
+              <div class="card-actions" style="display:flex;align-items:center;">
+                <paper-icon-button icon="vaadin:browser">` + skills + `</paper-icon-button>
+              </div>
+            </paper-card>
+          </div>
+        </div>
+        `
+      },
+      ready:function(){
+        var itself=this;
+        $(document).ready(function(){
+          for(var i=0;i<itself.children.length;i++){
+            var current=itself.children[i];
+            var className=current.getAttribute('class');
+            if(className="new-card"){
+                const title=current.getAttribute('title');
+                const image=current.getAttribute('img');
+                const location=current.getAttribute('location');
+                const comment=current.innerText;
+                const skills=current.getAttribute('skills');
+                itself.root.innerHTML=itself.root.innerHTML + itself.showcase(image,title,comment,location,skills);
+            }
+          }
+        })
+      }
+    })
+  </script>
+</dom-module>

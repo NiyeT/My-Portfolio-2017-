@@ -1,0 +1,179 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../app-layout/app-header/app-header.html">
+<link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-progress/paper-progress.html">
+<link rel="import" href="../paper-audio-player/paper-audio-player.html">
+<link rel="import" href="../paper-ripple/paper-ripple.html">
+<link rel="import" href="../vaadin-icons/vaadin-icons.html">
+
+<link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+
+
+<dom-module id="portfolio-header">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      html, body {
+         margin: 0;
+         font-family: 'Roboto', 'Noto', sans-serif;
+         -webkit-font-smoothing: antialiased;
+         background: #f1f1f1;
+         max-height: 368px;
+       }
+       app-toolbar {
+         background-color: #4285f4;
+         color: #fff;
+       }
+
+       paper-icon-button {
+         --paper-icon-button-ink-color: white;
+       }
+
+       paper-icon-button + [main-title] {
+         margin-left: 24px;
+       }
+       paper-progress {
+         display: block;
+         width: 100%;
+         --paper-progress-active-color: rgba(255, 255, 255, 0.5);
+         --paper-progress-container-color: transparent;
+       }
+       app-header {
+         @apply --layout-fixed-top;
+         color: #fff;
+         --app-header-background-rear-layer: {
+           background-color: #ef6c00;
+         };
+       }
+       app-drawer {
+         --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
+         --app-drawer-content-container: {
+           background-color: #B0BEC5;
+         }
+       }
+       sample-content {
+         padding-top: 64px;
+       }
+       #drawer-header{
+         height: 30%;
+         width: 100%;
+         background-color: rgba(255,255,255,.75);
+
+       }
+       #drawer-music-player{
+
+       }
+       #aboutMe{
+         width: 100%;
+         background-color: ;
+       }
+       .drawer-normal-tab{
+          font-size: .6vw;
+          font-family: 'Roboto Mono', 'Helvetica Neue', Arial, sans-serif;
+          border-top-width: 1px;
+          border-bottom-width: 1px;
+          border-style: solid;
+          border-color: rgb(240, 92, 56);
+          border-right-width: 0px;
+          border-left-width: 0px;
+          background-color: rgba(255,255,255,.75);
+          box-shadow: 0 1px 2px rgba(0,0,0,.3);
+          font-weight: 200;
+          color: rgb(240, 92, 56);
+       }
+       .drawer-normal-tab:hover{
+         cursor: pointer;
+       }
+       .frame{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+       }
+    </style>
+    <app-header reveals>
+      <app-toolbar style="background-color:transparent;">
+        <paper-icon-button class="navbar-icon" id="menu-icon" icon="menu"></paper-icon-button>
+        <div main-title> </div>
+        <!--
+        <paper-icon-button id="linkedin" class="contact-icon navbar-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACtklEQVR4AeyVA5AkQRREZ862bTMcZ9u2wzrbtm3bWNvmaW3b3rzKRa+NOWVEDoqvqv//LZPtUpoubC2cLIxKMveyku1UmkYAG2EoyFYESFEgQIos346dX7K7YiFyN8iFB17Sxx4NRxzVdcbYO6aotke5cgB42sFXDGDjF4FM+UbGY+5TK9FXKQBKOKTtjNz68CMAdQ+oVjyAXPicoRtyS8M5GA0PqRGwgm9gxxdMf2SBkNhEZCoxORXbVH9CXllBWHOvCla9sQNPbegRit3qDmhyWL1SYkCKA7kIxvoH1MBrr5KZllJ/IWnK3zskZ/SXEIDB1vm0trAO6K5ndNCYN5DRz9tgWxdhfnc8pQ2madXdSmDb7CeWWPfOHite22LoDWMegiDFj4GJ983hFBLD9IOPcEB0AjZ8+S6daIeaAwJFG/v8ouJh4ROB3uf1sFHpB34GRSMmMRlJKalISE5hLEHJIRCjbptAXlyAmY8tEZ2QjOzaK4qSbHs6AItTdhHwvpU3N0ZB+hYQhcGXDTi//AFSUtNPW5SY3lX3KJc7gKSwuESYeIXByDMM4XFJyC1bv0i0PKbJoCx/ALewWMwSwccApZe9skFwTAKyiXEjPYZyBziq48zUlVK09j4VvLL3Q3ZFxCdh/D0z7lG+AHFJKVj03DrHwhxHqOzimjMeWZQ/QKQ42ZQH5jkW5u896o7IJmYJa0T5A/BqJ+S6Wv7eqebwH+A/QOUBTMwHYFdpAaY9tACrVqyYECPMOr9d1UF6Gx7QcgLb2McxfCOOu2uaB2CLyk/EJ6WPo4PEmtOLqgOsZK2Pa4IDSUvPeWKFXud1pRre94Ie5jy1kvqnC+AWxzTYn2Odnud0MSdjDM0i1ObXOvDVBQjNEFciMJrhKHJwH5FmDgIPfNds4DuniO75P3r6HNY9BwATNI1Cu+uNpgAAAABJRU5ErkJggg=="></paper-icon-button>
+        <paper-icon-button id="twitter" class="contact-icon navbar-icon" src="https://developers.google.com/site-assets/logo-twitter.svg"></paper-icon-button>
+        <paper-icon-button id="github" class="contact-icon navbar-icon" src="https://developers.google.com/site-assets/logo-github.svg"></paper-icon-button>
+      -->
+      <paper-icon-button id="twitter" title="twitter" class="navbar-icon contact-icon" icon="vaadin:twitter"></paper-icon-button>
+      <paper-icon-button id="facebook" title="facebook" class="navbar-icon contact-icon" icon="vaadin:facebook"></paper-icon-button>
+      <paper-icon-button id="youtube" title="youtube" icon="vaadin:youtube" class="navbar-icon contact-icon"></paper-icon-button>
+        <!-- <paper-progress value="10" indeterminate bottom-item></paper-progress> -->
+      </app-toolbar>
+    </app-header>
+    <app-drawer id="drawer" swipe-open>
+      <paper-ripple></paper-ripple>
+      <div id="drawer-header" class="frame">
+        <img src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/18622112_1521687977883296_8535085843651341154_n.jpg?oh=839c090647b031db1d770873c42fdaa8&oe=5AAEB18B" style="height:100%;width:100%;object-fit:contain"/>
+      </div>
+      <div id="drawer-music-player"></div>
+      <div id="aboutMe" class="drawer-normal-tab frame">
+        <h1>About Me</h1>
+      </div>
+      <paper-audio-player src="http://nadikun.com/audio/demo.mp3" title="Pink Shades - O+PNR" color="#F05C38"></paper-audio-player>
+    </app-drawer>
+  </template>
+
+  <script>
+    /**
+     * `portfolio-header`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    // class PortfolioHeader extends Polymer.Element {
+    //   static get is() { return 'portfolio-header'; }
+    //   static get properties() {
+    //     return {};
+    //   }
+    //
+    // }
+    //
+    // window.customElements.define(PortfolioHeader.is, PortfolioHeader);
+    Polymer({
+      is:"portfolio-header",
+      socialMedia:{
+        "twitter":"https://twitter.com/NiyeTurner",
+        "linkedin":"https://www.linkedin.com/in/niyeturner",
+        "github":"https://github.com/NiyeT",
+        "facebook":"https://facebook.com/niye.turner",
+        "youtube":"https://www.youtube.com/channel/UCi1OuAv6DwUJCgAf_u9tVgQ?view_as=subscriber"
+      },
+      contactMe:function(media){
+        window.open(this.socialMedia[media]);
+      },
+      ready:function(){
+        this.style();
+        var itself=this;
+        $(document).ready(function(){
+          $(itself.root.querySelector("#menu-icon")).on("click touchstart",function(){
+            itself.root.querySelector("#drawer").toggle();
+          })
+          $(itself.root.querySelectorAll(".contact-icon")).on("click touchstart",function(){
+            var id=this.getAttribute("id");
+            itself.contactMe(id);
+          })
+          $(itself.root.querySelectorAll(".drawer-normal-tab")).on("click touchstart",function(){
+            globalDirectives(this.getAttribute("id"));
+          })
+          itself.root.querySelector("paper-audio-player").playPause();
+        })
+      },
+      style:function(){
+        this.root.querySelector(".drawer-normal-tab").style.height=this.root.querySelector("paper-audio-player").clientHeight + "px";
+      }
+    })
+  </script>
+</dom-module>

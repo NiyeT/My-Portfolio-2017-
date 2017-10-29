@@ -1,0 +1,112 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module class="full" id="portfolio-home">
+  <template>
+    <style>
+      :host {
+        display: block;
+        z-index: -5;
+      }
+      #background-image{
+        z-index: 0;
+        background-image:url('https://img00.deviantart.net/076c/i/2016/108/c/2/lake_acuity_by_cinnamon_quails-d9zeu7l.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -4;
+      }
+      #background-cover{
+        z-index: -3;
+        background-color: black;
+        opacity: 0.3;
+      }
+      .full{
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: ;
+        position: absolute;
+      }
+      #intro{
+        z-index: -1;
+      }
+      #foreground-main{
+        height: 70%;
+        width: 100%;
+        background-color: ;
+        text-align: center;
+      }
+      #foreground-more-info{
+        height: 30%;
+        width: 100%;
+        background-color:;
+      }
+      #niye{
+        font-size: 4vw;
+        color: white;
+        margin-top:10%;
+
+      }
+      #niyes_title{
+        font-size: 5vw;
+        margin-top: -10%;
+      }
+      .header-text{
+        font-family: 'Marko One', serif;
+        color: white;
+      }
+      .frame{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .open-portfolio{
+        transition: font-size .25s;
+      }
+      .open-portfolio:hover{
+        cursor:pointer;
+        color:#cccccc;
+        font-size:3vh;
+      }
+    </style>
+    <div class="full" id="background-image"></div>
+    <div class="full" id="background-cover"></div>
+    <div class="foreground-container full" id="intro">
+      <div id="foreground-main" class="frame"><header><h1 class="header-text" id="niye">Niye Turner:</h1><h2 class="header-text" id="niyes_title"><br>Full Stack Developer</br></h2></header></div>
+      <div id="foreground-more-info" class="frame"><h3 class="header-text open-portfolio">View Portfolio</h3></div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `portfolio-home`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    // class PortfolioHome extends Polymer.Element {
+    //   static get is() { return 'portfolio-home'; }
+    //   static get properties() {
+    //     return {
+    //       prop1: {
+    //         type: String,
+    //         value: 'portfolio-home'
+    //       }
+    //     };
+    //   }
+    // }
+    //
+    // window.customElements.define(PortfolioHome.is, PortfolioHome);
+    Polymer({
+      is:"portfolio-home",
+      ready:function(){
+        var upper=this;
+        $(this.root.querySelector(".open-portfolio")).on("click touchstart",function(){
+          globalDirectives("portfolio")
+        })
+      }
+    })
+  </script>
+</dom-module>

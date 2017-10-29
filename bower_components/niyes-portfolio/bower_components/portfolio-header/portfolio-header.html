@@ -1,0 +1,51 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="../app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../app-layout/app-header/app-header.html">
+<link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-progress/paper-progress.html">
+
+<dom-module id="portfolio-header">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .test{
+        background-color: red;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <div class="test">
+
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `portfolio-header`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PortfolioHeader extends Polymer.Element {
+      static get is() { return 'portfolio-header'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'portfolio-header'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PortfolioHeader.is, PortfolioHeader);
+  </script>
+</dom-module>

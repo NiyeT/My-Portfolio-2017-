@@ -1,0 +1,142 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
+<link rel="import" href="../vaadin-charts/vaadin-charts.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../vaadin-icons/vaadin-icons.html">
+
+<dom-module id="portfolio-aboutme">
+  <template>
+    <style>
+      :host {
+        height: 80%;
+        width: 80%;
+        background-color: white;
+        /*text-align: center;*/
+        /*border-radius: 10px;*/
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+      #main-wrapper{
+        height: 90%;
+        width: 100%;
+      }
+      #spacer-icon{
+        height: 10%;
+        width:100%;
+        display: flex;
+        justify-content: center;
+      }
+      #test{
+        margin-left: auto;
+      }
+      #basic-3d-pie{
+        /*border-radius: 1em;*/
+      }
+      #whatever{
+        /*height: 40%;
+        width: 100%;
+        background-color: blue;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+    <div id="main-wrapper">
+    <vaadin-pie-chart id="basic-3d-pie">
+      <chart-title>Technical Skills Breakdown (scroll for more info)</chart-title>
+
+      <plot-options>
+        <pie cursor="pointer" depth="45" allow-point-select="true">
+          <data-labels enabled="true" formatter="function() {return this.point.name +': '+ this.percentage +' %';}"></data-labels>
+        </pie>
+      </plot-options>
+
+      <tooltip point-format="{series.name}: <b>{point.percentage:.1f}%</b>"></tooltip>
+
+      <chart>
+        <options3d enabled="true" alpha="60">
+        </options3d>
+      </chart>
+
+      <data-series name="Browser share">
+        <data>
+
+          <point>
+            <name>Python</name>
+            <y>33</y>
+          </point>
+
+          <point>
+            <name>Javascript</name>
+            <y>27</y>
+          </point>
+          <point>
+            <name>HTML</name>
+            <y>18</y>
+            <!-- <sliced>true</sliced>
+            <selected>true</selected> -->
+          </point>
+          <point>
+            <name>CSS</name>
+            <y>18</y>
+          </point>
+          <point>
+            <name>Java</name>
+            <y>2</y>
+          </point>
+          <point>
+            <name>C++</name>
+            <y>1</y>
+          </point>
+          <point>
+            <name>Assembly x86_64</name>
+            <y>1</y>
+          </point>
+        </data>
+      </data-series>
+    </vaadin-pie-chart>
+  </div>
+    <div id="spacer-icon">
+      <paper-icon-button id="aboutMe-text" icon="vaadin:chevron-down"></paper-icon-button>
+    </div>
+    <div id="whatever">
+      <p style="margin:1%;">
+        Hey I'm Niye Turner, a self taught computer scientist interested in big data, artificial intelligence,
+        and robotics; this is despite the fact that most of my experience is with web development and higher level scripting languages.
+        Currently, my goal is to learn as much as possible by applying what I've learned in a 
+      </p>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `portfolio-aboutme`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    // class PortfolioAboutme extends Polymer.Element {
+    //   static get is() { return 'portfolio-aboutme'; }
+    //   static get properties() {
+    //     return {
+    //       prop1: {
+    //         type: String,
+    //         value: 'portfolio-aboutme'
+    //       }
+    //     };
+    //   }
+    // }
+    //
+    // window.customElements.define(PortfolioAboutme.is, PortfolioAboutme);
+    Polymer({
+      is:"portfolio-aboutme",
+      behaviors:[Polymer.IronOverlayBehavior],
+      ready:function(){
+      }
+    })
+  </script>
+</dom-module>
