@@ -3,7 +3,6 @@ var actions={
   portfolio:document.querySelector("niyes-portfolio").root.querySelector("#portfolio"),
 }
 function globalDirectives(directive){
-  alert('global directive')
   const drawer=document.querySelector("niyes-portfolio").root.querySelector("portfolio-header").root.querySelector("#drawer");
   if(drawer.opened){
     document.querySelector("niyes-portfolio").root.querySelector("portfolio-header").root.querySelector("#drawer").close();
