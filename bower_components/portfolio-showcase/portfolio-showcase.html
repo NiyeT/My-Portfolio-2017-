@@ -40,10 +40,20 @@
       }
       .case{
         height: 54%;
-        width: 33.3%;
+        /*width: 33.3%;*/
         background-color: #B0BEC5;
         float:right;
 
+      }
+      @media screen and (orientation:portrait){
+        .case{
+          width: 100%;
+        }
+      }
+      @media screen and (orientation:landscape){
+        .case{
+          width: 33.3%;
+        }
       }
       .inner-case{
         height: 95%;
@@ -100,9 +110,9 @@
       is:"portfolio-showcase",
       behaviors:[Polymer.IronOverlayBehavior],
       styleThis:function(){
-        if(window.innerWidth>window.innerHeight){return false};
-        alert('mobile')
+        // if(window.innerWidth>window.innerHeight){return false};
         $(this.root.querySelectorAll(".case")).css('width','100%');
+        console.log('cases:',this.root.querySelectorAll(".case"))
       },
       showcase:function(image,title,comment,location,skills){
         return `
@@ -123,7 +133,7 @@
       ready:function(){
         var itself=this;
         $(document).ready(function(){
-          itself.styleThis();
+          // itself.styleThis();
           for(let i=0;i<itself.children.length;i++){
             var current=itself.children[i];
             var className=current.getAttribute('class');
