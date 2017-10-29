@@ -60,11 +60,29 @@
        sample-content {
          padding-top: 64px;
        }
+       #drawer{
+
+       }
        #drawer-header{
          height: 30%;
          width: 100%;
          background-color: rgba(255,255,255,.75);
+         background-image:url("https://lh6.googleusercontent.com/-f05aCIU53WE/Ub9890x0JnI/AAAAAAABclc/RitQVJ2jyEQ/s0/8775428119_af18975128_o.jpg");
+         background-repeat: no-repeat;
+         background-size: cover;
 
+       }
+       #drawer-header-avatar-container{
+         height: 100%;
+         background-color: ;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+       }
+       #drawer-header-avatar{
+         border-radius: 100%;
+         height: 80%;
+         width: 80%;
        }
        #drawer-music-player{
 
@@ -74,18 +92,18 @@
          background-color: ;
        }
        .drawer-normal-tab{
-          font-size: .6vw;
-          font-family: 'Roboto Mono', 'Helvetica Neue', Arial, sans-serif;
+          font-size: .4em;
+          font-family: Arial;
           border-top-width: 1px;
           border-bottom-width: 1px;
           border-style: solid;
-          border-color: rgb(240, 92, 56);
+          border-color: #28423e;
           border-right-width: 0px;
           border-left-width: 0px;
           background-color: rgba(255,255,255,.75);
           box-shadow: 0 1px 2px rgba(0,0,0,.3);
-          font-weight: 200;
-          color: rgb(240, 92, 56);
+          /*font-weight: 200;*/
+          color: #28423e;
        }
        .drawer-normal-tab:hover{
          cursor: pointer;
@@ -114,13 +132,15 @@
     <app-drawer id="drawer" swipe-open>
       <paper-ripple></paper-ripple>
       <div id="drawer-header" class="frame">
-        <img src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/18622112_1521687977883296_8535085843651341154_n.jpg?oh=839c090647b031db1d770873c42fdaa8&oe=5AAEB18B" style="height:100%;width:100%;object-fit:contain"/>
+        <div id="drawer-header-avatar-container">
+          <img id="drawer-header-avatar" src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/18622112_1521687977883296_8535085843651341154_n.jpg?oh=839c090647b031db1d770873c42fdaa8&oe=5AAEB18B"/>
+        </div>
       </div>
       <div id="drawer-music-player"></div>
       <div id="aboutMe" class="drawer-normal-tab frame">
         <h1>About Me</h1>
       </div>
-      <paper-audio-player src="http://nadikun.com/audio/demo.mp3" title="Pink Shades - O+PNR" color="#F05C38"></paper-audio-player>
+      <paper-audio-player src="http://nadikun.com/audio/demo.mp3" title="Pink Shades - O+PNR" color="#28423e"></paper-audio-player>
     </app-drawer>
   </template>
 
@@ -173,6 +193,7 @@
       },
       style:function(){
         this.root.querySelector(".drawer-normal-tab").style.height=this.root.querySelector("paper-audio-player").clientHeight + "px";
+        this.root.querySelector("#drawer-header-avatar-container").style.width=this.root.querySelector("#drawer-header-avatar-container").clientHeight + 'px';
       }
     })
   </script>

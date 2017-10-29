@@ -99,6 +99,11 @@
     Polymer({
       is:"portfolio-showcase",
       behaviors:[Polymer.IronOverlayBehavior],
+      styleThis:function(){
+        if(window.innerWidth>window.innerHeight){return false};
+        alert('mobile')
+        $(this.root.querySelectorAll(".case")).css('width','100%');
+      },
       showcase:function(image,title,comment,location,skills){
         return `
         <div class="case frame">
@@ -118,7 +123,8 @@
       ready:function(){
         var itself=this;
         $(document).ready(function(){
-          for(var i=0;i<itself.children.length;i++){
+          itself.styleThis();
+          for(let i=0;i<itself.children.length;i++){
             var current=itself.children[i];
             var className=current.getAttribute('class');
             if(className="new-card"){
