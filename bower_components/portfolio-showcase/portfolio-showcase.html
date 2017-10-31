@@ -4,23 +4,11 @@
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../vaadin-icons/vaadin-icons.html">
+<link rel="import" href="../paper-button/paper-button.html">
 <link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet">
 
 <dom-module id="portfolio-showcase">
   <template>
-    <!-- <div class="case frame">
-      <div class="inner-case frame">
-        <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Something interesting to say
-          </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
-          </div>
-        </paper-card>
-      </div>
-    </div> -->
     <style>
       :host {
         display: block;
@@ -39,7 +27,7 @@
         overflow: -moz-scrollbars-none;  // Firefox
       }
       .case{
-        height: 54%;
+        height: 60%;
         /*width: 33.3%;*/
         background-color: #B0BEC5;
         float:right;
@@ -59,26 +47,47 @@
         height: 95%;
         width: 80%;
         margin:auto;
-        background-color:red ;
+        background-color: ;
       }
       .frame{
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      /*paper-card {
-      max-width: 100%;
-      max-height: 100%;
-      }*/
+
       paper-card{
         height: 100%;
         width:100%;
+        object-fit: contain;
       }
       .Htitle{
-        font-family: 'Proza Libre', sans-serif;
-
-        text-overflow: ellipsis;
+        /*font-family: 'Proza Libre', sans-serif;*/
+        text-overflow: clip;
         font-weight: ;
+        object-fit: contain;
+        /*font-family: sans-serif;*/
+        }
+        .location-icon{
+          height:36px;
+          width: 36px;
+        }
+        .card-actions{
+          /*height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          */
+          height: 100%;
+        }
+        .visit{
+          /*background-color: #c9c3ca;*/
+          background-color: black;
+          font-family: sans-serif;
+          color: snow;
+        }
+        .card-content{
+          text-overflow: ellipsis;
         }
     </style>
   </template>
@@ -122,8 +131,12 @@
               <div class="card-content">
               ` + comment + `
               </div>
-              <div class="card-actions" style="display:flex;align-items:center;">
-                <paper-icon-button icon="vaadin:browser">` + skills + `</paper-icon-button>
+              <div class="card-actions">
+                <div class="horizontal justified">
+                  <a href="` + location + `" target="_blank" style="text-decoration:none;">
+                    <paper-button role="button" raised toggles class="visit" style="padding:3%;">Visit</paper-button>
+                  </a>
+                </div>
               </div>
             </paper-card>
           </div>

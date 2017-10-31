@@ -177,14 +177,14 @@
         this.style();
         var itself=this;
         $(document).ready(function(){
-          $(itself.root.querySelector("#menu-icon")).on("click touchstart",function(){
+          $(itself.root.querySelector("#menu-icon")).on("click",function(){
             itself.root.querySelector("#drawer").toggle();
           })
-          $(itself.root.querySelectorAll(".contact-icon")).on("click touchstart",function(){
+          $(itself.root.querySelectorAll(".contact-icon")).on("click",function(){
             var id=this.getAttribute("id");
             itself.contactMe(id);
           })
-          $(itself.root.querySelectorAll(".drawer-normal-tab")).on("click touchstart",function(){
+          $(itself.root.querySelectorAll(".drawer-normal-tab")).on("click",function(){
             globalDirectives(this.getAttribute("id"));
           })
           itself.root.querySelector("paper-audio-player").playPause();

@@ -71,6 +71,7 @@ Custom property | Description | Default
 
         @apply --paper-font-common-base;
         @apply --paper-card;
+
       }
 
       /* IE 10 support for HTML5 hidden attr */
@@ -91,18 +92,20 @@ Custom property | Description | Default
         display: block;
         width: 100%;
         --iron-image-width: 100%;
+        --iron-image-height:12em;
         pointer-events: none;
 
         @apply --paper-card-header-image;
+
       }
 
       .header .title-text {
         padding: 16px;
         font-size: 24px;
         font-weight: 400;
-        color: var(--paper-card-header-color, #000);
-
+        color: var(--paper-card-header-color, #FFFFFF);
         @apply --paper-card-header-text;
+
       }
 
       .header .title-text.over-image {

@@ -103,7 +103,7 @@
       is:"portfolio-home",
       ready:function(){
         var upper=this;
-        $(this.root.querySelector(".open-portfolio")).on("click touchstart",function(){
+        $(this.root.querySelector(".open-portfolio")).on("click",function(){
           globalDirectives("portfolio")
         })
       }
