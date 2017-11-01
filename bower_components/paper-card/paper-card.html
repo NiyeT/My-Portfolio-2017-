@@ -63,7 +63,7 @@ Custom property | Description | Default
   <template>
     <style include="paper-material-styles">
       :host {
-        display: inline-block;
+        /*display: inline-block;*/
         position: relative;
         box-sizing: border-box;
         background-color: var(--paper-card-background-color, var(--primary-background-color));
@@ -84,7 +84,6 @@ Custom property | Description | Default
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
         overflow: hidden;
-
         @apply --paper-card-header;
       }
 
@@ -97,7 +96,6 @@ Custom property | Description | Default
         height: auto;
         width: auto;
         @apply --paper-card-header-image;
-
       }
 
       .header .title-text {
