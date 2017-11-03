@@ -63,7 +63,7 @@ Custom property | Description | Default
   <template>
     <style include="paper-material-styles">
       :host {
-        /*display: inline-block;*/
+        display: inline-block;
         position: relative;
         box-sizing: border-box;
         background-color: var(--paper-card-background-color, var(--primary-background-color));
@@ -250,7 +250,6 @@ Custom property | Description | Default
           computed: '_computeAnimated(animatedShadow)'
         }
       },
-
       /**
        * Format function for aria-hidden. Use the ! operator results in the
        * empty string when given a falsy value.
